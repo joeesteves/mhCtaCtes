@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { store } from '../store'
+//Actions
 import { fetchProductos } from '../actions/productos'
-//Component
+//Components
 import Producto from '../components/producto'
+import Filter from '../components/filter'
 //CSS
 import './productosContainer.css'
+//Helpers
+import { Maybe } from 'ramda-fantasy'
 
 class ProductosContainer extends Component {
   componentDidMount() {
@@ -15,7 +18,7 @@ class ProductosContainer extends Component {
   render() {
     return (
       <div className="table">
-        <input type="text" placeholder="Buscar..." /> 
+        <Filter />
         <table>
           <thead>
             <tr>
@@ -34,8 +37,15 @@ class ProductosContainer extends Component {
 
 
 const mapStateToProps = state => ({
-  productos: state.productos
+  productos: filterProductos(state.productos, state.filters).slice(0,10)
 })
+
+const filterProductos = (productos, filters) => {
+  if (filters.length === 0) return productos
+  return filterProductos(Maybe(filters[0].value)
+    .map(value => productos.filter(producto => new RegExp(value, "i").test(producto.nombre+producto.sku) ))
+    .getOrElse(productos), filters.slice(1))
+}
 
 export default connect(
   mapStateToProps, null
