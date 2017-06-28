@@ -1,0 +1,18 @@
+.table {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: column;
+}
+thead tr {
+    color: #fefefe;
+    background-color: #167f92;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: #fefefe;
+}
+
+table tr:nth-child(even) {
+    background-color: #eaf3f3;
+}
