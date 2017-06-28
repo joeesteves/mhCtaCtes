@@ -1,8 +1,18 @@
 .table {
+    margin-left: 5%;
+    margin-right: 5%;
+    
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     flex-flow: column;
+}
+input {
+    height: 50px;
+    font-size: x-large;
+    border-radius: 5px;
+    padding-left: 15px; 
+}
+table {
+    width: 100%
 }
 thead tr {
     color: #fefefe;
