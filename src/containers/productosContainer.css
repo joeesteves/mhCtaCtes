@@ -1,28 +1,26 @@
 .table {
-    margin-left: 5%;
-    margin-right: 5%;
-    
-    display: flex;
-    flex-flow: column;
-}
-input {
-    height: 50px;
-    font-size: x-large;
-    border-radius: 5px;
-    padding-left: 15px; 
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 table {
-    width: 100%
+  margin-top: 10px;
+  width: 100%
+}
+tr {
+  height: 35px;
 }
 thead tr {
-    color: #fefefe;
-    background-color: #167f92;
+  color: #fefefe;
+  background-color: #167f92;
 }
 
 tbody > tr:nth-child(odd) {
-    background-color: #fefefe;
+  background-color: #fefefe;
 }
 
 table tr:nth-child(even) {
-    background-color: #eaf3f3;
+  background-color: #eaf3f3;
 }

@@ -9,7 +9,8 @@ import Filter from '../components/filter'
 import './productosContainer.css'
 //Helpers
 import { Maybe } from 'ramda-fantasy'
-
+// Cont
+const qResultadosMostrar = 50
 class ProductosContainer extends Component {
   componentDidMount() {
     fetchProductos()
@@ -24,6 +25,7 @@ class ProductosContainer extends Component {
             <tr>
               <th>SKU</th>
               <th>Nombre</th>
+              <th>Precio</th>
             </tr>
           </thead>
           <tbody>
@@ -37,13 +39,13 @@ class ProductosContainer extends Component {
 
 
 const mapStateToProps = state => ({
-  productos: filterProductos(state.productos, state.filters).slice(0,10)
+  productos: filterProductos(state.productos, state.filters).slice(0, qResultadosMostrar)
 })
 
 const filterProductos = (productos, filters) => {
   if (filters.length === 0) return productos
   return filterProductos(Maybe(filters[0].value)
-    .map(value => productos.filter(producto => new RegExp(value, "i").test(producto.nombre+producto.sku) ))
+    .map(value => productos.filter(producto => new RegExp(value, "i").test(producto.nombre + producto.sku)))
     .getOrElse(productos), filters.slice(1))
 }
 

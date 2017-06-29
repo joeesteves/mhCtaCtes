@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateSearchTextFilter } from '../actions/filters'
 import Rx from 'rxjs'
+// CSS FA
+import '../vendor/font-awesome-4.7.0/css/font-awesome.min.css'
+import './filter.css'
 
 class Filters extends React.Component {
   componentDidMount() {
@@ -16,7 +19,12 @@ class Filters extends React.Component {
   }
 
   render() {
-    return <input id="searchText" type="text" placeholder="Buscar..." />
+    return (
+      <div className="filter">
+        <span><i className="fa fa-search" aria-hidden="true"></i></span>
+        <input id="searchText" type="text" placeholder="Buscar..." />
+      </div>
+      )
   }
 }
 
