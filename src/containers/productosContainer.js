@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 //Actions
 import { fetchProductos } from '../actions/productos'
+import { fillProductoActivo, cleanProductoActivo } from '../actions/productoActivo'
+
 //Components
 import Producto from '../components/producto'
 import ProductoDetalle from '../components/productoDetalle'
@@ -32,7 +34,7 @@ class ProductosContainer extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.productos.map((producto, i) => <Producto key={i} producto={producto} />)}
+            {this.props.productos.map((producto, i) => <Producto key={i} producto={producto} handleClick={() => this.props.fillProducto(producto)}/>)}
           </tbody>
         </table>
       </div>
@@ -52,6 +54,9 @@ const filterProductos = (productos, filters) => {
     .getOrElse(productos), filters.slice(1))
 }
 
+const mapDispatchToProps = {
+  fillProducto: fillProductoActivo
+}
 export default connect(
-  mapStateToProps, null
+  mapStateToProps, mapDispatchToProps
 )(ProductosContainer)

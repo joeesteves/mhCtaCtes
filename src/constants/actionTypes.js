@@ -6,3 +6,8 @@ export const productosActions = {
 export const filtersActions = {
   updateSearchText: 'SEARCH_TEXT_UPDATE'
 }
+
+export const productoActivoActions = {
+  fill: 'PRODUCTO_ACTIVO_FILL',
+  clean: 'PRODUCTO_ACTIVO_CLEAN'
+}

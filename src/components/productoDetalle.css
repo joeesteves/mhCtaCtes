@@ -1,10 +1,10 @@
 .productoDetalle {
   display: flex;
-  width: 50%;
-  height: 70%;
+  width: 80%;
+  height: 90%;
   position: fixed;
-  top:15%;
-  left: 25%;
+  top:5%;
+  left: 10%;
   background-color: #167f92;
   opacity: 0.95;
   border-radius: 15px;
@@ -13,6 +13,9 @@
   align-content: space-around;
   justify-content: center;
   border: solid 1px #eaf3f3;
+}
+hr {
+  border: 1px solid #eaf3f3;
 }
 h2, h3 {
   width: 100%;
@@ -24,11 +27,27 @@ h2, h3 {
   flex-wrap: wrap;
 }
 .footer {
-  justify-content:  flex-end;
+  align-self: flex-end;
+  justify-content:  space-around;
+  margin-left: 35%;
 }
 .col40 {
   width: 40%;
 }
 .offset {
   margin-left: 15%;
+}
+.btn {
+  font-size: large;
+  color: #eaf3f3;
+  width: 48%;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #476363;
+}
+.btn:hover{
+  filter: brightness(65%)
+}
+.envia {
+  margin-left: 5%;
 }
