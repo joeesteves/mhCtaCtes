@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { fetchProductos } from '../actions/productos'
 //Components
 import Producto from '../components/producto'
+import ProductoDetalle from '../components/productoDetalle'
+
 import Filter from '../components/filter'
 //CSS
 import './productosContainer.css'
@@ -19,6 +21,7 @@ class ProductosContainer extends Component {
   render() {
     return (
       <div className="table">
+        <ProductoDetalle />
         <Filter />
         <table>
           <thead>

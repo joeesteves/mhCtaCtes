@@ -4,7 +4,7 @@ import { store } from '../store'
 
 export const fetchProductos = () => {
   console.log("Fetching Productos")
-  getDataFromUrl('http://woomh.elcaminosoftware.com/drive_prices')
+  getDataFromUrl('http://woomh.elcaminosoftware.com/productos_info')
     .subscribe(productos => {
       store.dispatch(populateProductos(productos))
     })
