@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fillProductoActivo, cleanProductoActivo } from '../actions/productoActivo'
+import { fillProductoActivo, cleanProductoActivo, saveSaleProductoActivo } from '../actions/productoActivo'
 import ProductoVenta from './productoVenta'
 // CSS
 import './productoDetalle.css'
@@ -43,6 +43,6 @@ const ProductoDetalle = (props) => (
 
 const mapStateToProps = state => state.productoActivo
 const mapDispatchToProps = {
-  onVolver: cleanProductoActivo
+  onVolver: saveSaleProductoActivo
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductoDetalle)
