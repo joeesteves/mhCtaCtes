@@ -17,7 +17,6 @@ import { Maybe } from 'ramda-fantasy'
 const qResultadosMostrar = 50
 class VentasContainer extends Component {
   componentDidMount() {
-    alert("Estamos en ventas")
     fetchProductos()
   }
 

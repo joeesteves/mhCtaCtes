@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fillProductoActivo, cleanProductoActivo } from '../actions/productoActivo'
+import ProductoVenta from './productoVenta'
 // CSS
 import './productoDetalle.css'
 
@@ -36,6 +37,7 @@ const ProductoDetalle = (props) => (
       <button className='btn btn-success' onClick={props.onVolver}>Vover</button>
       <button className='btn btn-info'>Vender</button>
     </div>
+    <ProductoVenta />
   </div>
 )
 

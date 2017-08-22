@@ -31,6 +31,16 @@ h2, h3 {
   justify-content:  space-around;
   margin-left: 35%;
 }
+.ventas {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content:  space-around;  
+}
+.ventas > input {
+  width: 25%
+}
+
 .col40 {
   width: 40%;
 }

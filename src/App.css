@@ -22,3 +22,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.btn {
+  font-size: large;
+  color: #eaf3f3;
+  width: 48%;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #476363;
+}
+.btn:hover{
+  filter: brightness(65%)
+}

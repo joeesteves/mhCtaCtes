@@ -9,5 +9,6 @@ export const filtersActions = {
 
 export const productoActivoActions = {
   fill: 'PRODUCTO_ACTIVO_FILL',
-  clean: 'PRODUCTO_ACTIVO_CLEAN'
+  clean: 'PRODUCTO_ACTIVO_CLEAN',
+  update: 'PRODUCTO_ACTIVO_UPDATE'
 }

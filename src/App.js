@@ -26,9 +26,9 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          <a onClick={this.ir.bind(this, "/")}>Home</a>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/")}>Home</button>
 
-          <a onClick={this.ir.bind(this, "/ventas")}>Ir a ventas</a>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/ventas")}>Ir a ventas</button>
         </p>
         <ConnectedRouter history={history}>
           <div>

@@ -5,3 +5,7 @@ export const fillProductoActivo = (producto) => {
 }
 
 export const cleanProductoActivo = () => ({ type: productoActivoActions.clean })
+
+export const updateProductoActivo = (updateObject) => {
+  return { type: productoActivoActions.update, updateObject }
+}
