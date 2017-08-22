@@ -13,15 +13,18 @@ const ProductoDetalle = (props) => (
     <div className='main'>
       <div className='col40 offset'>
         <h3> Costo </h3>
-        <h3> Envío </h3>
         <h3> Margen </h3>
+        <h3> IVA </h3>
+        <h3> Gastos de Envío </h3>
         <hr />
         <h3> Final </h3>
       </div>
       <div className='col40'>
         <h3> {props.costo} </h3>
+        <h3> {props.margen} </h3>
+        <h3> {props.iva} </h3>
+
         <h3> {props.costoEnvio} </h3>
-        <h3> {calcMargen(props)} </h3>
         <hr />
         <h3> {props.precio} </h3>
       </div>
@@ -35,10 +38,6 @@ const ProductoDetalle = (props) => (
     </div>
   </div>
 )
-
-const calcMargen = (props) => (Math.round((props.precio - props.costo - props.costoEnvio) * 100) >> 0) / 100
-
-
 
 const mapStateToProps = state => state.productoActivo
 const mapDispatchToProps = {

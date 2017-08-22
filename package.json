@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "history": "^4.6.3",
     "ramda-fantasy": "^0.8.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
+    "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.1",
+    "redux-devtools-extension": "^2.13.2",
     "rxjs": "^5.4.1",
     "whatwg-fetch": "^2.0.3"
   },
