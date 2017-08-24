@@ -4,7 +4,7 @@ import R from 'ramda'
 export default (state = { cantida: 1, metodoPago: 'efecivoCarcamo' }, action) => {
   switch (action.type) {
     case productoActivoActions.fill:
-      return { ...action.producto, cantidad: 1, metodoPago: 'efectivoCarcamo', show: 'hola' }
+      return { ...action.producto, cantidad: 1, metodoPago: 'mercadoPago', show: 'hola' }
     case productoActivoActions.update:
       return Maybe(action.updateObject.cantidad)
         .map(updateValues(state))

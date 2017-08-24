@@ -7,8 +7,8 @@ Venta de montura (5000 $ + 500 $ envío)
 
 BcoGalicia        5.500
 CostoProduccion   1500
+ComisiónCarcamo   132.23
 ProveedorCordoba -1500
-Ventas           -4000
+Ventas           -4132.23
 IVA              -867.77
 EnvioCarcamo     -500
-ComisiónCarcamo  -132.23

@@ -1,13 +1,9 @@
-import { init } from 'rxjs-couchdb'
 import { productoActivoActions } from '../constants/actionTypes'
-
-const DB_HEADERS = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Basic am9zZTphbGZhMTM0Ng==',
-  'User-Agent': 'request'
-}
-const db = init('http://db.ceibo.co/martin_hardoy', DB_HEADERS)
-
+import { createTransaction, addItems } from 'conty.js'
+import { saveTransaction } from '../db'
+import { todayString, roundTwo } from '../helpers/misc'
+import R from 'ramda'
+import { Maybe } from 'ramda-fantasy'
 
 export const fillProductoActivo = (producto) => {
   return { type: productoActivoActions.fill, producto }
@@ -19,10 +15,46 @@ export const updateProductoActivo = (updateObject) => {
   return { type: productoActivoActions.update, updateObject }
 }
 
-export const saveSaleProductoActivo = () => {
-  console.log("HOLA")
-  db
-    .put({ _id: `probando${new Date().toISOString()}`, value: 'wow' })
-    .subscribe(({ response, body }) => console.log(body))
+export const saveSaleProductoActivo = (producto) => {
+  Maybe(producto)
+    .map(valuesToFloat(['precio', 'costo', 'iva', 'ingreso', 'costoEnvio']))
+    .map(generateItems)
+    .map(putIntoTransaction)
+    .map(console.log)
+
   return { type: productoActivoActions.clean }
 }
+
+const valuesToFloat = R.curry((keys, producto) => (
+  keys.reduce((p, c) => ({ ...p, [c]: roundTwo(parseFloat(producto[c])) }), producto)
+))
+
+const proveedor = (enviadoPor) => {
+  return {
+    'Cecilia Riera': 'Mercadal',
+    'Carcamo': 'produccionPropia',
+    'Quero': 'Quero'
+  }[enviadoPor]
+}
+
+const generateItems = (producto) => {
+  return [
+    { accountId: producto.metodoPago, amount: producto.precio },
+    { accountId: 'costoProducción', amount: producto.costo },
+    { accountId: 'costoEnvio', amount: producto.costoEnvio },
+    { accountId: proveedor(producto.enviadoPor), amount: -producto.costo },
+    { accountId: producto.enviadoPor, amount: -producto.costoEnvio },
+    { accountId: 'Ingreso por Ventas', amount: -producto.ingreso },
+    { accountId: 'IVA Debito', amount: -producto.iva }
+  ]
+    .concat(producto.conComision ? [
+      { accountId: 'Costo Comisión', amount: producto.comision },
+      { accountId: 'Comisiones a Pagar', amount: -producto.comision },
+    ] : [])
+}
+
+const addTransactionToItems = R.curry((transaction, items) => {
+  return addEventListener(items, transaction)
+})
+
+const putIntoTransaction = addTransactionToItems(createTransaction({ date: todayString }))

@@ -35,7 +35,7 @@ const ProductoDetalle = (props) => (
     </div>
     <div className='footer'>
       <button className='btn btn-success' onClick={props.onVolver}>Vover</button>
-      <button className='btn btn-info'>Vender</button>
+      <button className='btn btn-info' onClick={props.onSave.bind(this, props)}>Vender</button>
     </div>
     <ProductoVenta />
   </div>
@@ -43,6 +43,7 @@ const ProductoDetalle = (props) => (
 
 const mapStateToProps = state => state.productoActivo
 const mapDispatchToProps = {
-  onVolver: saveSaleProductoActivo
+  onVolver: cleanProductoActivo,
+  onSave: saveSaleProductoActivo
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductoDetalle)
