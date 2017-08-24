@@ -12,3 +12,8 @@ export const productoActivoActions = {
   clean: 'PRODUCTO_ACTIVO_CLEAN',
   update: 'PRODUCTO_ACTIVO_UPDATE'
 }
+
+export const transaccionesActions = {
+  fetch: 'TRANSACCIONES_FETCH',
+  populate: 'TRANSACCIONES_POPULATE'
+}

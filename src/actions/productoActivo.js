@@ -19,8 +19,10 @@ export const saveSaleProductoActivo = (producto) => {
   Maybe(producto)
     .map(valuesToFloat(['precio', 'costo', 'iva', 'ingreso', 'costoEnvio']))
     .map(generateItems)
-    .map(putIntoTransaction)
-    .map(console.log)
+    .map(putIntoTransaction(producto))
+    .map(saveTransaction)
+    .map(obs => obs.subscribe())
+
 
   return { type: productoActivoActions.clean }
 }
@@ -54,7 +56,7 @@ const generateItems = (producto) => {
 }
 
 const addTransactionToItems = R.curry((transaction, items) => {
-  return addEventListener(items, transaction)
+  return addItems(items, transaction)
 })
 
-const putIntoTransaction = addTransactionToItems(createTransaction({ date: todayString }))
+const putIntoTransaction = (producto) => addTransactionToItems(createTransaction({ date: todayString, ...producto }))
