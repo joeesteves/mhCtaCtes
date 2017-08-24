@@ -46,19 +46,15 @@ class VentasContainer extends Component {
 
 
 const mapStateToProps = state => ({
-  transacciones: state.transacciones
+  transacciones: filterTransacciones(state.transacciones, state.filters).slice(0, qResultadosMostrar)
 })
 
-// const filterProductos = (productos, filters) => {
-//   if (filters.length === 0) return productos
-//   return filterProductos(Maybe(filters[0].value)
-//     .map(value => productos.filter(producto => new RegExp(value, "i").test(producto.nombre + producto.sku)))
-//     .getOrElse(productos), filters.slice(1))
-// }
-
-// const mapDispatchToProps = {
-//   fillProducto: fillProductoActivo
-// }
+const filterTransacciones = (transacciones, filters) => {
+  if (filters.length === 0) return transacciones
+  return filterTransacciones(Maybe(filters[0].value)
+    .map(value => transacciones.filter(transaccion => new RegExp(value, "i").test(transaccion.date + transaccion.nombre + transaccion.date + transaccion.enviadoPor + transaccion.metodoPago)))
+    .getOrElse(transacciones), filters.slice(1))
+}
 export default connect(
   mapStateToProps, null
 )(VentasContainer)

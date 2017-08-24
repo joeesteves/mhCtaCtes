@@ -1,10 +1,10 @@
 import { productoActivoActions } from '../constants/actionTypes'
 import { Maybe } from 'ramda-fantasy'
 import R from 'ramda'
-export default (state = { cantida: 1, metodoPago: 'efecivoCarcamo' }, action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case productoActivoActions.fill:
-      return { ...action.producto, show: 'hola' }
+      return { ...action.producto,  cantidad: 1, metodoPago: 'efecivoCarcamo', show: 'hola' }
     case productoActivoActions.update:
       return Maybe(action.updateObject.cantidad)
         .map(updateValues(state))

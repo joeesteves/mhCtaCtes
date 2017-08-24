@@ -14,7 +14,6 @@ class Filters extends React.Component {
   }
 
   handleOnSearch(se) {
-    console.log(se.target.value)
     this.props.onSearch(se.target.value)
   }
 
