@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ProductosContainer from './containers/productosContainer'
 import VentasContainer from './containers/ventasContainer'
+import CuentasCorrientes from './containers/cuentasCorrientes'
 import { connect } from 'react-redux'
 
 //Helpers
@@ -30,6 +31,8 @@ class App extends Component {
           <div>
             <Route exact path='/' component={ProductosContainer} />
             <Route path="/ventas" component={VentasContainer} />
+            <Route path="/ctas_ctes" component={CuentasCorrientes} />
+            
             {/* <Route path="/topics" component={Topics}/> */}
           </div>
         </ConnectedRouter>)
@@ -50,8 +53,9 @@ class App extends Component {
         </div>
         <p className="App-intro">
           <button className='btn btn-success' onClick={this.ir.bind(this, "/")}>Home</button>
-
           <button className='btn btn-success' onClick={this.ir.bind(this, "/ventas")}>Ir a ventas</button>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/ctas_ctes")}>Cuentas</button>
+
         </p>
 
         {routes}

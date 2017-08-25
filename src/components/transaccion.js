@@ -10,15 +10,6 @@ export default (props) => (
     <td>{props.transaccion.cantidad}</td>
     <td>$ {props.transaccion.precio}</td>
     <td>{props.transaccion.enviadoPor}</td>
-    <td>{medioPago(props.transaccion.metodoPago)}</td>
+    <td>{props.transaccion.metodoPago}</td>
     <td onClick={props.handleRemove}><span><i className="fa fa-trash" aria-hidden="true"></i></span></td>
   </tr>)
-
-
-
-
-const medioPago = (metodoPago) => ({
-  'mercadoPago': "Mercado Pago",
-  'efectivoCarcamo': "Ef. Carcamo",
-  'transferencia': "Transferencia"
-}[metodoPago])

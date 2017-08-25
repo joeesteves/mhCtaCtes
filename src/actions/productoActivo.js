@@ -46,7 +46,7 @@ const generateItems = (producto) => {
     { accountId: 'costoProducción', amount: producto.costo },
     { accountId: 'costoEnvio', amount: producto.costoEnvio },
     { accountId: proveedor(producto.enviadoPor), amount: -producto.costo },
-    { accountId: producto.enviadoPor, amount: -producto.costoEnvio },
+    { accountId: producto.enviadoPor + '-Envio', amount: -producto.costoEnvio },
     { accountId: 'Ingreso por Ventas', amount: -producto.ingreso },
     { accountId: 'IVA Debito', amount: -producto.iva }
   ]

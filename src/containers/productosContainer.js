@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 //Actions
 import { fetchProductos } from '../actions/productos'
 import { fillProductoActivo, cleanProductoActivo } from '../actions/productoActivo'
+import { cleanFilter } from '../actions/filters'
 
 //Components
 import Producto from '../components/producto'
@@ -18,6 +19,7 @@ const qResultadosMostrar = 50
 class ProductosContainer extends Component {
   componentDidMount() {
     fetchProductos()
+    cleanFilter()
   }
 
   render() {

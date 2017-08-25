@@ -4,7 +4,8 @@ export const productosActions = {
 }
 
 export const filtersActions = {
-  updateSearchText: 'SEARCH_TEXT_UPDATE'
+  updateSearchText: 'SEARCH_TEXT_UPDATE',
+  cleanFilter: 'FILTER_CLEAN'
 }
 
 export const productoActivoActions = {
@@ -21,4 +22,8 @@ export const transaccionesActions = {
 
 export const loggedIn = {
   toggle: 'TOGGLE_LOGGEDIN'
+}
+
+export const balanceActions = {
+  build: 'BALANCE_BUILD'
 }

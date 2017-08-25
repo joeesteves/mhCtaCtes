@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 //Actions
 import { fetchTransacciones, requestDeleteTransaccion } from '../actions/transacciones'
-
+import { cleanFilter } from '../actions/filters'
 //Components
 import Transaccion from '../components/transaccion'
 // import ProductoDetalle from '../components/productoDetalle'
@@ -21,6 +21,7 @@ const handleRemove = (transaccion) => {
 class VentasContainer extends Component {
   componentDidMount() {
     fetchTransacciones()
+    cleanFilter()
   }
 
   render() {

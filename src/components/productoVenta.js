@@ -10,9 +10,9 @@ const ProductoVenta = (props) => (
     <input type="number" value={props.cantidad} onChange={props.onUpdateCantidad} />
     <label>Metodo de pago</label>
     <select value={props.metodoPago} onChange={props.onUpdateMetodoPago} >
-      <option value="mercadoPago">Mercado Pagos</option>
-      <option value="efectivoCarcamo">Ef. Carcamo</option>
-      <option value="transferencia">Transferencia</option>
+      <option value="Mercado Pago">Mercado Pagos</option>
+      <option value="Efectivo Carcamo">Ef. Carcamo</option>
+      <option value="Banco">Banco</option>
     </select>
   </div>
 )

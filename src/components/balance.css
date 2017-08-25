@@ -1,0 +1,22 @@
+.balance {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.account {
+  border-radius: 15px;
+  background-color: #476363;
+  color: white;
+  border: 1px solid black;
+  width: 45%;
+  margin: 5px;
+}
+
+.neg {
+  background-color: #881f1f;
+}
+div.over {
+  border: 2px dashed black;
+}
