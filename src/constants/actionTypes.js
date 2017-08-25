@@ -15,5 +15,10 @@ export const productoActivoActions = {
 
 export const transaccionesActions = {
   fetch: 'TRANSACCIONES_FETCH',
-  populate: 'TRANSACCIONES_POPULATE'
+  populate: 'TRANSACCIONES_POPULATE',
+  delete: 'TRANSACCION_DELETE'
+}
+
+export const loggedIn = {
+  toggle: 'TOGGLE_LOGGEDIN'
 }

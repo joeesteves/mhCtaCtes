@@ -4,7 +4,7 @@ import R from 'ramda'
 export default (state = {}, action) => {
   switch (action.type) {
     case productoActivoActions.fill:
-      return { ...action.producto,  cantidad: 1, metodoPago: 'efecivoCarcamo', show: 'hola' }
+      return { ...action.producto,  cantidad: 1, metodoPago: 'mercadoPago', show: 'hola' }
     case productoActivoActions.update:
       return Maybe(action.updateObject.cantidad)
         .map(updateValues(state))
@@ -25,4 +25,3 @@ const updateValues = R.curry((producto, cantidad) => {
     cantidad
   }
 })
-
