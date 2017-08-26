@@ -4,6 +4,8 @@ import transacciones from './transacciones'
 import loggedIn from './loggedIn'
 import filters from './filters'
 import balance from './balance'
+import movimientos from './movimientos'
+
 
 import productoActivo from './productoActivo'
 import { routerReducer } from 'react-router-redux'
@@ -15,6 +17,7 @@ const rootReducer = combineReducers({
   transacciones,
   loggedIn,
   balance,
+  movimientos,
   router: routerReducer
 })
 

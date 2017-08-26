@@ -16,7 +16,6 @@ export const updateProductoActivo = (updateObject) => {
 }
 
 export const saveSaleProductoActivo = (producto) => {
-  console.log(producto)
   Maybe(producto)
     .map(valuesToFloat(['precio', 'costo', 'iva', 'ingreso', 'costoEnvio']))
     .map(generateItems)

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 //Actions
-import { buildBalances } from '../actions/transacciones'
+import { fetchTransacciones } from '../actions/transacciones'
+import { fetchMovimientos } from '../actions/movimientos'
 import { cleanFilter } from '../actions/filters'
 
 
@@ -15,7 +16,8 @@ import { Maybe } from 'ramda-fantasy'
 
 class CuentasCorrientesContainer extends Component {
   componentDidMount() {
-    buildBalances()
+    fetchTransacciones()
+    fetchMovimientos()
     cleanFilter()
   }
 

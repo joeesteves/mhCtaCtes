@@ -27,3 +27,9 @@ export const loggedIn = {
 export const balanceActions = {
   build: 'BALANCE_BUILD'
 }
+
+export const movimientosActions = {
+  populate: 'MOVIMIENTOS_POPULATE',
+  create: 'MOVIMIENTO_CREATE',
+  delete: 'MOVIMIENTO_DELETE'
+}
