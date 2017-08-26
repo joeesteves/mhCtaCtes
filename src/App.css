@@ -45,10 +45,20 @@ span {
   padding: 15px;
 }
 input {
+  margin-left: 15px;
   border: none;
   height: 50px;
   font-size: x-large;
   /*border-radius: 5px;*/
   padding-left: 15px; 
   width: 100%
+}
+select {
+  border: none;
+  height: 50px;
+  font-size: x-large;
+  margin-left: 10px; 
+  /*border-radius: 5px;*/
+  padding-left: 15px; 
+  width: 20%
 }
