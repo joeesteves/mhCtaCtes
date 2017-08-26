@@ -14,6 +14,8 @@ const ProductoVenta = (props) => (
       <option value="Efectivo Carcamo">Ef. Carcamo</option>
       <option value="Banco">Banco</option>
     </select>
+    <label>Comisión ({props.comision})</label>
+    <input type="checkbox" checked={props.conComision} onChange={props.onUpdateComision} />
   </div>
 )
 
@@ -23,7 +25,8 @@ const mapStateToProps = state => state.productoActivo
 
 const mapDispatchToProps = {
   onUpdateCantidad: (event) => updateProductoActivo({ cantidad: event.target.value }),
-  onUpdateMetodoPago: (event) => updateProductoActivo({ metodoPago: event.target.value })
+  onUpdateMetodoPago: (event) => updateProductoActivo({ metodoPago: event.target.value }),
+  onUpdateComision: (event) => updateProductoActivo({ conComision: event.target.checked })
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductoVenta)

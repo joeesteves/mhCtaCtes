@@ -29,4 +29,5 @@ const calcIngreso = (producto) => roundTwo(producto.precio - calcIVA(producto))
  *  margen
  *  enviadoPor
  *  ingreso
+ * conComision
  */
