@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "conty.js": "^1.0.0",
     "history": "^4.6.3",
     "ramda-fantasy": "^0.8.0",
     "react": "^15.6.1",
@@ -13,6 +14,7 @@
     "redux": "^3.7.1",
     "redux-devtools-extension": "^2.13.2",
     "rxjs": "^5.4.3",
+    "rxjs-couchdb": "^1.0.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
