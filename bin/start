@@ -1,0 +1,2 @@
+#!/bin/bash 
+/root/.node/bin/serve -s /root/myApps/mh/build
