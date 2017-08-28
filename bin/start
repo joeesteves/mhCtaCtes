@@ -1,2 +1,2 @@
-#!/bin/bash 
-/root/.node/bin/serve -s /root/myApps/mh/build
+#!/bin/bash
+/root/.node/bin/node /root/.node/lib/node_modules/serve/bin/serve -s /root/myApps/mh/build
