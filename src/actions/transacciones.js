@@ -32,8 +32,9 @@ export const buildBalances = () => {
     Rx.Observable.from(store.getState().movimientos)
   )
     .flatMap(transaccion => Rx.Observable.from(transaccion.items))
+    .concat(Rx.Observable.from([{ accountId: 'Ajuste', amount: 0 }]))
     .reduce((p, c) => ({ ...p, [c.accountId]: roundTwo((p[c.accountId] || 0) + c.amount) }), {})
-    .map(balances => R.pick(['Carcamo-Envio', 'Cecilia Riera-Envio', 'Quero-Envio', 'Mercadal', 'Quero', 'Comisiones a Pagar', 'Mercado Pago', 'Efectivo Carcamo', 'Banco'], balances))
+    .map(balances => R.pick(['Ajuste','Carcamo-Envio', 'Cecilia Riera-Envio', 'Quero-Envio', 'Mercadal', 'Quero', 'Comisiones a Pagar', 'Mercado Pago', 'Efectivo Carcamo', 'Banco'], balances))
     .map(toArray)
     .subscribe(balance => store.dispatch({ type: balanceActions.build, balance }))
 }
@@ -46,4 +47,4 @@ const deleteTransaction = (transaccion) => {
   }
 
 }
-const toArray = (balanceObj) => Object.keys(balanceObj).map(acc => ({ accountId: acc, balance: balanceObj[acc] }))
+const toArray = (balanceObj) => Object.keys(balanceObj).map(acc => ({ accountId: acc, balance: balanceObj[acc] })).reverse()

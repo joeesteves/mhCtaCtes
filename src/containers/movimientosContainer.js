@@ -35,7 +35,7 @@ class VentasContainer extends Component {
             <tr>
               <th>FECHA</th>
               <th>ORIGEN</th>
-              <th>DESTION</th>
+              <th>DESTINO</th>
               <th>IMPORTE</th>
               <th></th>
             </tr>

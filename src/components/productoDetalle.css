@@ -61,3 +61,6 @@ h2, h3 {
 .envia {
   margin-left: 5%;
 }
+.ventas > .cantidad {
+  width: 45px;
+}

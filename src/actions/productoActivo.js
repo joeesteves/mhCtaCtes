@@ -59,4 +59,4 @@ const addTransactionToItems = R.curry((transaction, items) => {
   return addItems(items, transaction)
 })
 
-const putIntoTransaction = (producto) => addTransactionToItems(createTransaction({ date: todayString, ...producto }))
+const putIntoTransaction = (producto) => addTransactionToItems(createTransaction({ ...producto }))
