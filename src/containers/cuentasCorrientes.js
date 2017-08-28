@@ -10,9 +10,6 @@ import Filter from '../components/filter'
 import Balance from '../components/balance'
 //CSS
 import './productosContainer.css'
-//Helpers
-import { Maybe } from 'ramda-fantasy'
-// Cont
 
 class CuentasCorrientesContainer extends Component {
   componentDidMount() {

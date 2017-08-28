@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 //Actions
 import { fetchProductos } from '../actions/productos'
-import { fillProductoActivo, cleanProductoActivo } from '../actions/productoActivo'
+import { fillProductoActivo  } from '../actions/productoActivo'
 import { cleanFilter } from '../actions/filters'
 
 //Components

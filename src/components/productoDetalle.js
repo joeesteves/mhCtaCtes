@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fillProductoActivo, cleanProductoActivo, saveSaleProductoActivo } from '../actions/productoActivo'
+import { cleanProductoActivo, saveSaleProductoActivo } from '../actions/productoActivo'
 import ProductoVenta from './productoVenta'
 // CSS
 import './productoDetalle.css'

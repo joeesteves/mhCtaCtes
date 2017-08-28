@@ -23,9 +23,9 @@ const populateMovimientos = (movimientos) => {
   }
 }
 export const saveMovimiento = (items) => {
-  Maybe(addItems(items, createTransaction({ date: todayString, doc_type: 'movimiento' })))
+ return Maybe(addItems(items, createTransaction({ date: todayString, doc_type: 'movimiento' })))
     .map(movimiento => {
-      saveTransaction(movimiento)
+      return saveTransaction(movimiento)
         .subscribe(() => {
           store.dispatch(addMovimiento(movimiento))
           buildBalances()
