@@ -8,8 +8,8 @@ export default (props) => {
 
   return (<div className={dynamicClass(props.accountId)} draggable="true" onDragStart={handleDragStart.bind(null, props)} onDragOver={handleDrag} onDragEnter={handleDragEnter} onDragLeave={handleDragLeave} onDrop={handleDrop.bind(null, props)}>
     <div className="pc">
-      <h1>{props.accountId}</h1>
-      <h2>{balance}</h2>
+      <h3>{props.accountId}</h3>
+      <h3>{balance}</h3>
     </div>
     <div className="mobile">
       <h3>{props.accountId}</h3>
@@ -21,7 +21,7 @@ export default (props) => {
 const dynamicClass = (accountId) => {
   console.log(accountId)
   return Maybe('account')
-    .map(p => p + (!R.contains(accountId, ['Mercado Pago', 'Efectivo Carcamo', 'Banco']) ? ' neg' : ''))
+    .map(p => p + (!R.contains(accountId, ['Mercado Pago', 'Efectivo Carcamo','Efectivo Hardoy', 'Banco']) ? ' neg' : ''))
     .map(p => p + (R.contains(accountId, ['Ajuste']) ? ' ajuste' : ''))
     .value
 

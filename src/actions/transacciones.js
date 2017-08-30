@@ -26,15 +26,18 @@ export const requestDeleteTransaccion = (transaccion) => {
       store.dispatch(deleteTransaction(transaccion))
     })
 }
+
+const cuentas = ['Ajuste','Carcamo-Envio', 'Cecilia Riera-Envio', 'Quero-Envio', 'Mercadal', 'Quero', 'Comisiones a Pagar','Efectivo Carcamo', 'Efectivo Hardoy', 'Mercado Pago', 'Banco' ]
+
 export const buildBalances = () => {
   Rx.Observable.merge(
     Rx.Observable.from(store.getState().transacciones),
     Rx.Observable.from(store.getState().movimientos)
   )
     .flatMap(transaccion => Rx.Observable.from(transaccion.items))
-    .concat(Rx.Observable.from([{ accountId: 'Ajuste', amount: 0 }]))
+    .concat(Rx.Observable.from(cuentas.map(c => ({ accountId: c, amount: 0 }))))
     .reduce((p, c) => ({ ...p, [c.accountId]: roundTwo((p[c.accountId] || 0) + c.amount) }), {})
-    .map(balances => R.pick(['Ajuste','Carcamo-Envio', 'Cecilia Riera-Envio', 'Quero-Envio', 'Mercadal', 'Quero', 'Comisiones a Pagar', 'Mercado Pago', 'Efectivo Carcamo', 'Banco'], balances))
+    .map(balances => R.pick(cuentas, balances))
     .map(toArray)
     .subscribe(balance => store.dispatch({ type: balanceActions.build, balance }))
 }

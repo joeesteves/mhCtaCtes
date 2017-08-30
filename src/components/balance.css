@@ -6,7 +6,7 @@
 }
 
 .account {
-  height: 120px;
+  height: 80px;
   border-radius: 15px;
   background-color: #476363;
   color: white;
@@ -14,7 +14,12 @@
   width: 45%;
   margin: 5px;
 }
-
+.account .mobile h3 {
+  margin-top: 2px;
+}
+.account .pc h3 {
+  margin-top: 8px;
+}
 .neg {
   background-color: #881f1f;
 }
