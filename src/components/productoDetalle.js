@@ -7,6 +7,21 @@ import './productoDetalle.css'
 
 const ProductoDetalle = (props) => (
   <div className='productoDetalle' style={{ display: props.show ? 'flex' : 'none' }}>
+    {pc(props)}
+    {mobile(props)}
+    <ProductoVenta />
+  </div>
+)
+
+const mapStateToProps = state => state.productoActivo
+const mapDispatchToProps = {
+  onVolver: cleanProductoActivo,
+  onSave: saveSaleProductoActivo
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductoDetalle)
+
+const pc = (props) => (
+  <div className="pc">
     <div className='heading'>
       <h2>{props.nombre}</h2>
       <h3> SKU: {props.sku} </h3>
@@ -37,13 +52,39 @@ const ProductoDetalle = (props) => (
       <button className='btn btn-success' onClick={props.onVolver}>Vover</button>
       <button className='btn btn-info' onClick={props.onSave.bind(this, props)}>Vender</button>
     </div>
-    <ProductoVenta />
   </div>
 )
+const mobile = (props) => (
+  <div className="mobile">
+    <div className='heading'>
+      <h4>{props.nombre}</h4>
+      <h4> SKU: {props.sku} </h4>
+    </div>
+    <div className='main'>
+      <div className='col40 offset'>
+        <h5> Costo </h5>
+        <h5> Margen </h5>
+        <h5> IVA </h5>
+        <h5> Envío </h5>
+        <hr />
+        <h5> Final </h5>
+      </div>
+      <div className='col40'>
+        <h5> {props.costo} </h5>
+        <h5> {props.margen} </h5>
+        <h5> {props.iva} </h5>
 
-const mapStateToProps = state => state.productoActivo
-const mapDispatchToProps = {
-  onVolver: cleanProductoActivo,
-  onSave: saveSaleProductoActivo
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ProductoDetalle)
+        <h5> {props.costoEnvio} </h5>
+        <hr />
+        <h5> {props.precio} </h5>
+      </div>
+      <div className='envia'>
+        <h5>Envía: {props.enviadoPor} </h5>
+      </div>
+    </div>
+    <div className='footer_mobile'>
+      <button className='btn btn-success' onClick={props.onVolver}>Vover</button>
+      <button className='btn btn-info' onClick={props.onSave.bind(this, props)}>Vender</button>
+    </div>
+  </div>
+)

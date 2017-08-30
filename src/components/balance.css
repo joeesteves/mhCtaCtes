@@ -24,12 +24,3 @@
 div.over {
   border: 2px dashed black;
 }
-
-@media screen and (max-width: 480px) {
-  .mobile {
-      display: block;
-  }
-  .pc {
-    display: none;
-  }
-}

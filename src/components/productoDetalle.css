@@ -17,7 +17,7 @@
 hr {
   border: 1px solid #eaf3f3;
 }
-h2, h3 {
+h2, h3, h4 {
   width: 100%;
   margin-bottom: 2px; 
 }
@@ -31,10 +31,16 @@ h2, h3 {
   justify-content:  space-around;
   margin-left: 35%;
 }
+.footer_mobile {
+  align-self: flex-end;
+  justify-content:  space-around;
+  margin-left: 5%;
+}
 .ventas {
   align-items: center;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content:  space-around;  
 }
 .ventas > input {
@@ -77,4 +83,52 @@ h2, h3 {
 }
 .ventas > .comision {
   width: 10%;
+}
+
+.mobile, h5 {
+  margin: 2px;
+}
+
+.mobile, h4 {
+  margin: 5px;
+}
+.mobile .btn {
+  font-size: small;
+  color: #eaf3f3;
+  width: 45%;
+  padding: 2px;
+  border-radius: 2px;
+  background-color: #476363;
+  }
+.mobile > .btn:hover{
+  filter: brightness(65%)
+}
+.mobile select {
+  font-size: small;
+  height: 35px;
+  margin-top: 5px;
+  margin-left: -5px;
+  padding: 1px;
+  width: 100%;
+}
+.mobile input {
+  font-size: small;
+  height: 35px;
+  margin: 0px;
+  padding: 1px;
+  width: min-content;
+}
+.mobile .date {
+  width: 100%;
+}
+.mobile .row {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.mobile .comision {
+  width: 35px;
 }
