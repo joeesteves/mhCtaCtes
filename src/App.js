@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 import { hotkeys } from './helpers/hotkeys'
 
 import { ConnectedRouter, push } from 'react-router-redux'
-import { Route } from 'react-router'
+import { Route, Redirect} from 'react-router'
 import { store, history } from './store'
 import { tryLogIn } from './actions/loggedIn'
 class App extends Component {
@@ -30,7 +30,8 @@ class App extends Component {
       routes = (
         <ConnectedRouter history={history}>
           <div>
-            <Route exact path='/' component={ProductosContainer} />
+            <Redirect from="/" to="/home" />
+            <Route path='/home' component={ProductosContainer} />
             <Route path="/ventas" component={VentasContainer} />
             <Route path="/ctas_ctes" component={CuentasCorrientes} />
             <Route path="/movimientos" component={Movimientos} />
@@ -51,10 +52,10 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Gestión de ventas MH</h2>
+          <h2>MHG</h2>
         </div>
         <p className="App-intro">
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/")}>Home</button>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/home")}>Home</button>
           <button className='btn btn-success' onClick={this.ir.bind(this, "/ventas")}>Ventas</button>
           <button className='btn btn-success' onClick={this.ir.bind(this, "/ctas_ctes")}>Cuentas</button>
           <button className='btn btn-success' onClick={this.ir.bind(this, "/movimientos")}>Movimientos</button>

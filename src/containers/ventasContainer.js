@@ -38,6 +38,7 @@ class VentasContainer extends Component {
               <th>IMPORTE</th>
               <th>ENVÍA</th>
               <th>PAGO CON</th>
+              <th>OBS.</th>
               <th></th>
             </tr>
           </thead>
@@ -58,7 +59,7 @@ const mapStateToProps = state => ({
 const filterTransacciones = (transacciones, filters) => {
   if (filters.length === 0) return transacciones
   return filterTransacciones(Maybe(filters[0].value)
-    .map(value => transacciones.filter(transaccion => new RegExp(value, "i").test(transaccion.date + transaccion.nombre + transaccion.date + transaccion.enviadoPor + transaccion.metodoPago)))
+    .map(value => transacciones.filter(transaccion => new RegExp(value, "i").test(transaccion.date + transaccion.nombre + transaccion.date + transaccion.enviadoPor + transaccion.metodoPago + transaccion.obs)))
     .getOrElse(transacciones), filters.slice(1))
 }
 

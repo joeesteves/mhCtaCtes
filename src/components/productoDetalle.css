@@ -38,11 +38,18 @@ h2, h3 {
   justify-content:  space-around;  
 }
 .ventas > input {
+  width: 20%
+}
+
+.ventas > select {
   width: 25%
 }
 
 .col40 {
   width: 40%;
+}
+.col12 {
+  width: 100%;
 }
 .offset {
   margin-left: 15%;
@@ -63,4 +70,11 @@ h2, h3 {
 }
 .ventas > .cantidad {
   width: 45px;
+}
+.obs {
+  margin: 10px;
+  width: 100%;
+}
+.ventas > .comision {
+  width: 10%;
 }
