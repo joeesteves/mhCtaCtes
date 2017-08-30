@@ -1,7 +1,5 @@
 import React from 'react'
 import { formatDate } from '../helpers/misc'
-// CSS FA
-import '../vendor/font-awesome-4.7.0/css/font-awesome.min.css'
 
 export default (props) => (
   <tr title={props.transaccion.obs}>

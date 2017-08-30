@@ -14,6 +14,10 @@ import { ConnectedRouter, push } from 'react-router-redux'
 import { Route, Redirect} from 'react-router'
 import { store, history } from './store'
 import { tryLogIn } from './actions/loggedIn'
+
+//Fonts
+import './vendor/font-awesome-4.7.0/css/font-awesome.min.css'
+
 class App extends Component {
   componentWillMount() {
     hotkeys()
@@ -55,10 +59,10 @@ class App extends Component {
           <h2>MHG</h2>
         </div>
         <p className="App-intro">
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/home")}>Home</button>
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/ventas")}>Ventas</button>
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/ctas_ctes")}>Cuentas</button>
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/movimientos")}>Movimientos</button>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/home")}>HOME</button>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/ventas")}>VENTAS</button>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/ctas_ctes")}>CUENTAS</button>
+          <button className='btn btn-success' onClick={this.ir.bind(this, "/movimientos")}>MOVIMIENTOS</button>
 
         </p>
 

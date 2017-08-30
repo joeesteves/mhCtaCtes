@@ -21,7 +21,7 @@ class CuentasCorrientesContainer extends Component {
   render() {
     return (
       <div className="table">
-        <Filter />
+        {/* <Filter /> */}
         <div className="balance">
           {this.props.balance.map(balance => <Balance {...balance} />)}
         </div>

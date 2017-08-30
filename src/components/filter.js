@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { updateSearchTextFilter } from '../actions/filters'
 import Rx from 'rxjs'
 // CSS FA
-import '../vendor/font-awesome-4.7.0/css/font-awesome.min.css'
 import './filter.css'
 
 class Filters extends React.Component {
