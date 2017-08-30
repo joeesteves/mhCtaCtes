@@ -24,6 +24,7 @@ const mapDispatchToProps = {
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductoVenta)
 
+// templates for pc and mobile
 const pc = (props) => (
   <div className="pc">
     <div className="ventas">

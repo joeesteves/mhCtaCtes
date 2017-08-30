@@ -22,7 +22,7 @@ const updateValues = R.curry((producto, cantidad) => {
     return producto
   return {
     ...['costo', 'margen', 'costoEnvio', 'iva', 'precio', 'ingreso', 'comision']
-      .reduce((p, c) => ({ ...p, [c]: (Math.floor(p[c] / p.cantidad * cantidad * 100) / 100) }), { ...producto }),
+      .reduce((p, c) => ({ ...p, [c]: (Math.round(p[c] / p.cantidad * cantidad * 100) / 100) }), { ...producto }),
     cantidad
   }
 })
