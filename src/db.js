@@ -6,7 +6,7 @@ const DB_HEADERS = {
   'User-Agent': 'request'
 }
 
- export const db = init('http://db.ceibo.co/martin_hardoy', DB_HEADERS)
+ export const db = init('https://db.ceibo.co/martin_hardoy', DB_HEADERS)
 //export const db = init('http://db.ceibo.co/demo_pwa', DB_HEADERS)
 
 export const saveTransaction = generateSaveTransaction(db.put)
