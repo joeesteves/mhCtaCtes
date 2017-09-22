@@ -6,12 +6,13 @@ import VentasContainer from './containers/ventasContainer'
 import CuentasCorrientes from './containers/cuentasCorrientes'
 import Movimientos from './containers/movimientosContainer'
 import { connect } from 'react-redux'
+import { loggedIn } from './constants/actionTypes'
 
 //Helpers
 import { hotkeys } from './helpers/hotkeys'
 
 import { ConnectedRouter, push } from 'react-router-redux'
-import { Route, Redirect} from 'react-router'
+import { Route, Redirect } from 'react-router'
 import { store, history } from './store'
 import { tryLogIn } from './actions/loggedIn'
 
@@ -28,30 +29,27 @@ class App extends Component {
   handleLogIn(e) {
     tryLogIn(e.target.value)
   }
-  render() {
-    let routes = null
-    if (this.props.loggedIn) {
-      routes = (
-        <ConnectedRouter history={history}>
-          <div>
-            <Redirect from="/" to="/home" />
-            <Route path='/home' component={ProductosContainer} />
-            <Route path="/ventas" component={VentasContainer} />
-            <Route path="/ctas_ctes" component={CuentasCorrientes} />
-            <Route path="/movimientos" component={Movimientos} />
-
-            {/* <Route path="/topics" component={Topics}/> */}
-          </div>
-        </ConnectedRouter>)
-    } else {
-      routes = (
+  constructBody(rol){
+    let routes = []
+    switch (rol) {
+      case loggedIn.admin:
+        routes = [<Route path="/ctas_ctes" component={CuentasCorrientes} />,<Route path="/movimientos" component={Movimientos} />]
+      case loggedIn.seller: 
+        routes = routes.concat([<Redirect from="/" to="/home" />, <Route path='/home' component={ProductosContainer} />, <Route path="/ventas" component={VentasContainer} />])
+    }
+    return (routes.length > 0) ? (
+      <ConnectedRouter history={history}>
+        <div>
+          {routes.map((r,i) => ({...r, key:i}))}
+        </div>
+      </ConnectedRouter> ) : (
         <div className="filter">
           <span><i className="fa fa-key" aria-hidden="true"></i></span>
           <input className="filter" type="password" onChange={this.handleLogIn} />
         </div>
-    
-    )
-    }
+      )
+  }
+  render() {
     return (
       <div className="App">
         <div className="App-header">
@@ -66,7 +64,7 @@ class App extends Component {
 
         </p>
 
-        {routes}
+        {this.constructBody(this.props.loggedIn)}
 
       </div>
     )

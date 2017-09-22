@@ -21,7 +21,8 @@ export const transaccionesActions = {
 }
 
 export const loggedIn = {
-  toggle: 'TOGGLE_LOGGEDIN'
+  admin: 'ADMIN_LOGGEDIN',
+  seller: 'SELLER_LOGGEDIN'
 }
 
 export const balanceActions = {

@@ -1,10 +1,5 @@
 import { loggedIn } from '../constants/actionTypes'
 
-export default (state = true, action) => {
-  switch (action.type) {
-    case loggedIn.toggle:
-      return !state
-    default:
-      return state
-  }
+export default (state = '', action) => {
+  return [loggedIn.admin, loggedIn.seller].includes(action.type) ? action.type : state
 }

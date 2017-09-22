@@ -2,9 +2,12 @@ import { store } from '../store'
 import { loggedIn } from '../constants/actionTypes'
 
 export const tryLogIn = (psw) => {
-  console.log("trying")
-  if(psw === "mh50"){
-    console.log("HEY")
-    store.dispatch({type: loggedIn.toggle})
+  switch (psw) {
+    case "admin1122":
+      store.dispatch({type: loggedIn.admin})
+      break
+    case "ventas2233":
+      store.dispatch({type: loggedIn.seller})
+      break
   }
 }
