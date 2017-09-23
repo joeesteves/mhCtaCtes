@@ -3,8 +3,7 @@ import { productosActions } from '../constants/actionTypes'
 import { store } from '../store'
 
 export const fetchProductos = () => {
-  console.log("Fetching Productos")
-  getDataFromUrl('http://woomh.elcaminosoftware.com/productos_info')
+  getDataFromUrl('https://woomh.ceibo.co/productos_info')
     .subscribe(productos => {
       store.dispatch(populateProductos(productos))
     })
