@@ -5,9 +5,9 @@ import { fetchTransacciones } from '../actions/transacciones'
 import { fetchMovimientos } from '../actions/movimientos'
 import { cleanFilter } from '../actions/filters'
 
-
-import Filter from '../components/filter'
+//Components
 import Balance from '../components/balance'
+
 //CSS
 import './productosContainer.css'
 

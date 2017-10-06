@@ -16,5 +16,6 @@ const update = (state, name, value) => {
 }
 
 const safeText = (text) => (
+  // eslint-disable-next-line
   text.replace(/([\(,\)])/g,'\\$1')
 )

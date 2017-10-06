@@ -26,6 +26,7 @@ class App extends Component {
     hotkeys()
   }
   ir(target) {
+    console.log("rput")
     store.dispatch(push(target))
   }
   handleLogIn(e) {
@@ -34,10 +35,15 @@ class App extends Component {
   constructBody(rol) {
     let routes = []
     switch (rol) {
+      // eslint-disable-next-line
       case loggedIn.admin:
         routes = [<Route path="/ctas_ctes" component={CuentasCorrientes} />, <Route path="/movimientos" component={Movimientos} />]
+      // eslint-disable-next-line
       case loggedIn.seller:
         routes = routes.concat([<Redirect from="/" to="/home" />, <Route path='/home' component={ProductosContainer} />, <Route path="/ventas" component={VentasContainer} />])
+      // eslint-disable-next-line
+      default:
+
     }
     return (routes.length > 0) ? (
       <ConnectedRouter history={history}>
@@ -51,7 +57,7 @@ class App extends Component {
         </div>
       )
   }
- 
+
   render() {
     return (
       <div className="App">
@@ -59,7 +65,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>MHG</h2>
         </div>
-        <Menu loggedIn={this.props.loggedIn} ir={this.ir.bind(this)}/>
+        <Menu loggedIn={this.props.loggedIn} ir={this.ir} />
 
 
         {this.constructBody(this.props.loggedIn)}

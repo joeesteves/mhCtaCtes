@@ -9,5 +9,6 @@ export const tryLogIn = (psw) => {
     case "ventas2233":
       store.dispatch({type: loggedIn.seller})
       break
+    default:
   }
 }

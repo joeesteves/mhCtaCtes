@@ -1,7 +1,7 @@
 import { productoActivoActions } from '../constants/actionTypes'
 import { createTransaction, addItems } from 'conty.js'
 import { saveTransaction } from '../db'
-import { todayString, roundTwo } from '../helpers/misc'
+import { roundTwo } from '../helpers/misc'
 import R from 'ramda'
 import { Maybe } from 'ramda-fantasy'
 
