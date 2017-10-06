@@ -8,6 +8,9 @@ import { Maybe } from 'ramda-fantasy'
 export const fillProductoActivo = (producto) => {
   return { type: productoActivoActions.fill, producto }
 }
+export const descuento = (descuento) => {
+  return { type: productoActivoActions.descuento, descuento: descuento }
+}
 
 export const cleanProductoActivo = () => ({ type: productoActivoActions.clean })
 
@@ -17,7 +20,7 @@ export const updateProductoActivo = (updateObject) => {
 
 export const saveSaleProductoActivo = (producto) => {
   Maybe(producto)
-    .map(valuesToFloat(['precio', 'costo', 'iva', 'ingreso', 'costoEnvio']))
+    .map(valuesToFloat(['precio', 'costo', 'iva', 'ingreso', 'costoEnvio','applyDescuento']))
     .map(generateItems)
     .map(putIntoTransaction(producto))
     .map(saveTransaction)
@@ -44,6 +47,7 @@ const generateItems = (producto) => {
     { accountId: producto.metodoPago, amount: producto.precio },
     { accountId: 'costoProducción', amount: producto.costo },
     { accountId: 'costoEnvio', amount: producto.costoEnvio },
+    { accountId: 'descuentos', amount: producto.applyDescuento},
     { accountId: proveedor(producto.enviadoPor), amount: -producto.costo },
     { accountId: producto.enviadoPor + '-Envio', amount: -producto.costoEnvio },
     { accountId: 'Ingreso por Ventas', amount: -producto.ingreso },

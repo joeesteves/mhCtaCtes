@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { cleanProductoActivo, saveSaleProductoActivo } from '../actions/productoActivo'
+//Acciones
+import { cleanProductoActivo, saveSaleProductoActivo, descuento } from '../actions/productoActivo'
 import ProductoVenta from './productoVenta'
 // CSS
 import './productoDetalle.css'
@@ -16,7 +17,8 @@ const ProductoDetalle = (props) => (
 const mapStateToProps = state => state.productoActivo
 const mapDispatchToProps = {
   onVolver: cleanProductoActivo,
-  onSave: saveSaleProductoActivo
+  onSave: saveSaleProductoActivo,
+  onDescuento: (event) => descuento(event.target.value)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductoDetalle)
 
@@ -31,7 +33,8 @@ const pc = (props) => (
         <h3> Costo </h3>
         <h3> Margen </h3>
         <h3> IVA </h3>
-        <h3> Gastos de Envío </h3>
+        <h3> Envío </h3>
+        <h3> Desc </h3>
         <hr />
         <h3> Final </h3>
       </div>
@@ -41,6 +44,7 @@ const pc = (props) => (
         <h3> {props.iva} </h3>
 
         <h3> {props.costoEnvio} </h3>
+        <input style={{height: '36px' }}type="text" value={props.descuento} onChange={props.onDescuento} />
         <hr />
         <h3> {props.precio} </h3>
       </div>
@@ -66,6 +70,7 @@ const mobile = (props) => (
         <h5> Margen </h5>
         <h5> IVA </h5>
         <h5> Envío </h5>
+        <h5 style={{marginBottom: '15px' }}> Desc </h5>
         <hr />
         <h5> Final </h5>
       </div>
@@ -75,6 +80,7 @@ const mobile = (props) => (
         <h5> {props.iva} </h5>
 
         <h5> {props.costoEnvio} </h5>
+        <input style= {{height: '20px', width: '30px'}}type="text" value={props.descuento} onChange={props.onDescuento} />
         <hr />
         <h5> {props.precio} </h5>
       </div>

@@ -11,7 +11,8 @@ export const filtersActions = {
 export const productoActivoActions = {
   fill: 'PRODUCTO_ACTIVO_FILL',
   clean: 'PRODUCTO_ACTIVO_CLEAN',
-  update: 'PRODUCTO_ACTIVO_UPDATE'
+  update: 'PRODUCTO_ACTIVO_UPDATE',
+  descuento: 'PRODUCTO_ACTIVO_DESCUENTO'
 }
 
 export const transaccionesActions = {

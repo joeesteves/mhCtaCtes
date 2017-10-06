@@ -10,7 +10,7 @@ export default (state = [], action) => {
 }
 
 const processProductos = (producto) => {
-  return { ...producto, margen: calcMargen(producto), iva: calcIVA(producto), comision: calcComision(0.2, producto), ingreso: calcIngreso(producto), conComision: true }
+  return { ...producto, margen: calcMargen(producto), iva: calcIVA(producto), comision: calcComision(0.2, producto), ingreso: calcIngreso(producto), descuento: 0, applyDescuento: 0, conComision: true }
 }
 const calcMargen = (producto) => roundTwo((producto.precio - producto.costoEnvio) / 1.21 - producto.costo)
 
