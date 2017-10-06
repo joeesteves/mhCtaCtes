@@ -7,7 +7,9 @@ import CuentasCorrientes from './containers/cuentasCorrientes'
 import Movimientos from './containers/movimientosContainer'
 import { connect } from 'react-redux'
 import { loggedIn } from './constants/actionTypes'
+//Components
 
+import Menu from './components/menu'
 //Helpers
 import { hotkeys } from './helpers/hotkeys'
 
@@ -29,26 +31,27 @@ class App extends Component {
   handleLogIn(e) {
     tryLogIn(e.target.value)
   }
-  constructBody(rol){
+  constructBody(rol) {
     let routes = []
     switch (rol) {
       case loggedIn.admin:
-        routes = [<Route path="/ctas_ctes" component={CuentasCorrientes} />,<Route path="/movimientos" component={Movimientos} />]
-      case loggedIn.seller: 
+        routes = [<Route path="/ctas_ctes" component={CuentasCorrientes} />, <Route path="/movimientos" component={Movimientos} />]
+      case loggedIn.seller:
         routes = routes.concat([<Redirect from="/" to="/home" />, <Route path='/home' component={ProductosContainer} />, <Route path="/ventas" component={VentasContainer} />])
     }
     return (routes.length > 0) ? (
       <ConnectedRouter history={history}>
         <div>
-          {routes.map((r,i) => ({...r, key:i}))}
+          {routes.map((r, i) => ({ ...r, key: i }))}
         </div>
-      </ConnectedRouter> ) : (
+      </ConnectedRouter>) : (
         <div className="filter">
           <span><i className="fa fa-key" aria-hidden="true"></i></span>
           <input className="filter" type="password" onChange={this.handleLogIn} />
         </div>
       )
   }
+ 
   render() {
     return (
       <div className="App">
@@ -56,13 +59,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>MHG</h2>
         </div>
-        <p className="App-intro">
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/home")}>HOME</button>
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/ventas")}>VENTAS</button>
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/ctas_ctes")}>CUENTAS</button>
-          <button className='btn btn-success' onClick={this.ir.bind(this, "/movimientos")}>MOVIMIENTOS</button>
+        <Menu loggedIn={this.props.loggedIn} ir={this.ir.bind(this)}/>
 
-        </p>
 
         {this.constructBody(this.props.loggedIn)}
 
