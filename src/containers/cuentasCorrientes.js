@@ -23,7 +23,16 @@ class CuentasCorrientesContainer extends Component {
       <div className="table">
         {/* <Filter /> */}
         <div className="balance">
-          {this.props.balance.map(balance => <Balance {...balance} />)}
+          {
+            this.props.balance
+              .filter(balance => !this.props.filter || balance.accountId === this.props.filter)
+              .map(balance => {
+                if(this.props.filter){
+                  return <Balance {...balance} accountId= "mis comisiones" />
+                }
+              return <Balance {...balance} />
+            })
+          }
         </div>
       </div>
     )

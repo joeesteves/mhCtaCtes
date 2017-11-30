@@ -33,18 +33,22 @@ class App extends Component {
     tryLogIn(e.target.value)
   }
   constructBody(rol) {
+    const sharedRoutes = [<Redirect from="/" to="/home" />, <Route path='/home' component={ProductosContainer} />, <Route path="/ventas" component={VentasContainer} />]
     let routes = []
+
     switch (rol) {
       // eslint-disable-next-line
       case loggedIn.admin:
         routes = [<Route path="/ctas_ctes" component={CuentasCorrientes} />, <Route path="/movimientos" component={Movimientos} />]
+        .concat(sharedRoutes)
+        break
       // eslint-disable-next-line
       case loggedIn.seller:
-        routes = routes.concat([<Redirect from="/" to="/home" />, <Route path='/home' component={ProductosContainer} />, <Route path="/ventas" component={VentasContainer} />])
+        routes = sharedRoutes.concat([<Route path="/ctas_ctes"  component={() => <CuentasCorrientes filter="Comisiones a Pagar" />} />, <Route path="/movimientos" component={() => <Movimientos filter="Comisiones a Pagar" />} />])
+        break
       // eslint-disable-next-line
-      default:
-
     }
+
     return (routes.length > 0) ? (
       <ConnectedRouter history={history}>
         <div>

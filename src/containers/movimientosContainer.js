@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 //Actions
-import { fetchMovimientos,  requestDeleteMovimiento} from '../actions/movimientos'
+import { fetchMovimientos, requestDeleteMovimiento } from '../actions/movimientos'
 import { cleanFilter } from '../actions/filters'
 
 //Components
@@ -41,7 +41,9 @@ class VentasContainer extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.movimientos.map((movimiento, i) => <Movimiento key={i} movimiento={movimiento} handleRemove={handleRemove.bind(this, movimiento)} />)}
+            {this.props.movimientos
+              .filter(movimiento => !this.props.filter || movimiento.items.reduce((p, c) => p || c.accountId === this.props.filter, false))
+              .map((movimiento, i) => <Movimiento hasFilter={this.props.filter ? true : false} key={i} movimiento={movimiento} handleRemove={handleRemove.bind(this, movimiento)} />)}
           </tbody>
         </table>
       </div>
@@ -57,7 +59,7 @@ const mapStateToProps = state => ({
 const filterMovimientos = (movimientos, filters) => {
   if (filters.length === 0) return movimientos
   return filterMovimientos(Maybe(filters[0].value)
-    .map(value => movimientos.filter(movimiento => new RegExp(value, "i").test(movimiento.date + movimiento.items[0].accountId + movimiento.items[1].accountId )))
+    .map(value => movimientos.filter(movimiento => new RegExp(value, "i").test(movimiento.date + movimiento.items[0].accountId + movimiento.items[1].accountId)))
     .getOrElse(movimientos), filters.slice(1))
 }
 
