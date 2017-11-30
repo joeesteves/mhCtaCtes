@@ -44,7 +44,7 @@ class App extends Component {
         break
       // eslint-disable-next-line
       case loggedIn.seller:
-        routes = sharedRoutes.concat([<Route path="/ctas_ctes"  component={() => <CuentasCorrientes filter="Comisiones a Pagar" />} />, <Route path="/movimientos" component={() => <Movimientos filter="Comisiones a Pagar" />} />])
+        routes = sharedRoutes.concat([<Route path="/ctas_ctes"  component={() => <CuentasCorrientes filter={["Comisiones a Pagar", "Efectivo Carcamo"]} />} />, <Route path="/movimientos" component={() => <Movimientos filter="Comisiones a Pagar" />} />])
         break
       // eslint-disable-next-line
     }

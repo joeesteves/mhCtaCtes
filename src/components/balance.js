@@ -8,7 +8,7 @@ export default (props) => {
 
   return (<div className={dynamicClass(props.accountId)} draggable="true" onDragStart={handleDragStart.bind(null, props)} onDragOver={handleDrag} onDragEnter={handleDragEnter} onDragLeave={handleDragLeave} onDrop={handleDrop.bind(null, props)}>
     <div className="pc">
-      <h3>{props.accountId}</h3>
+      <h3>{props.name || props.accountId}</h3>
       <h3>{balance}</h3>
     </div>
     <div className="mobile">

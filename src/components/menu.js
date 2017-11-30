@@ -15,7 +15,7 @@ export default (props) => {
   )
   const Seller = () => (
     <div>
-      <button className='btn btn-success' onClick={props.ir.bind(null, "/ctas_ctes")}>MIS COMISIONES</button>
+      <button className='btn btn-success' onClick={props.ir.bind(null, "/ctas_ctes")}>MIS CUENTAS</button>
       <button className='btn btn-success' onClick={props.ir.bind(null, "/movimientos")}>MIS MOVIMIENTOS</button>
     </div>
   )
