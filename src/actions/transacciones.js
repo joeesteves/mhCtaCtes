@@ -6,8 +6,9 @@ import R from 'ramda'
 import { roundTwo } from '../helpers/misc'
 
 export const fetchTransacciones = () => {
-  db.find({ doc_type: 'transaction' })
+  db.find({ doc_type: 'transaction'}, {limit: 1000} )
     .subscribe(({ response, body }) => {
+      console.log(body.docs)
       store.dispatch(populateTransacciones(body.docs))
       buildBalances()
     })

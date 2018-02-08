@@ -53,7 +53,7 @@ class VentasContainer extends Component {
 
 
 const mapStateToProps = state => ({
-  transacciones: filterTransacciones(state.transacciones, state.filters).slice(0, qResultadosMostrar)
+  transacciones: filterTransacciones(state.transacciones, state.filters).reverse().slice(0, qResultadosMostrar)
 })
 
 const filterTransacciones = (transacciones, filters) => {
